@@ -58,6 +58,10 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
+
 // Get all products
 app.get('/api/products', (req, res) => {
     const sql = 'SELECT * FROM products';
