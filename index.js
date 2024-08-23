@@ -16,6 +16,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors({
   origin: 'https://nec-client-nine.vercel.app', // Replace with your actual frontend URL
+  origin: '*', // Allow all origins (not recommended for production)
   credentials: true
 }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the "uploads" directory
