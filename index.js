@@ -14,7 +14,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://nec-client-nine.vercel.app/', // Replace with your actual frontend URL
+  credentials: true
+}));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files from the "uploads" directory
 
 const port = 3000; // Keep the port here
